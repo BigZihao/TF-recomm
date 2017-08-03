@@ -29,6 +29,8 @@ It's pretty common is recommendation problem, the user-item matrix is sparse. Th
 
 ### SVD implementation
 
+The idea of SVD is find the latent factor for both users and items, then the rating would be inner product of user vector and item vector. This idea can be translate to a objective function and solved by Gradient discent.
+
 #### Graph
 Given by user u and item i, the inference of the classic SVD is 
 ```
@@ -69,5 +71,14 @@ If you have large data, it is better to use TF [data pipeline](https://www.tenso
 ### Others:
 SVD++ will be provided soon.
 
+### Nect step
+
+SVD can reduce dimension. But the latent factor itself also contain important information. We map M\*N matrix into M\*K and K\*N latent space, then each user have a 1\*k vector to describe them. This vector is actually describing the preference of the user. This is data manupulation in a higher space, sometimes is hard to find the intuitive interpretation of those latent fators. 
+
+One way is to map the latent factor again into something we can interprete. For example, Sander Dieleman used CNN to map Audio informtion into the item latent factor. Then he is able to find similar songs in the sense of user preference and recommend similar songs if even this song is total new. this solves the cold starter problem in recommendation system for years. He has a great post describing it. 
+
 ### Reference
 [Factorization Meets the Neighborhood: a Multifaceted Collaborative Filtering Model](http://www.cs.rochester.edu/twiki/pub/Main/HarpSeminar/Factorization_Meets_the_Neighborhood-_a_Multifaceted_Collaborative_Filtering_Model.pdf)
+
+[Recommending music on Spotify with deep learning]
+(http://benanne.github.io/2014/08/05/spotify-cnns.html)
