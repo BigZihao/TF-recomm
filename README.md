@@ -25,6 +25,8 @@ Factorization models are very popular in recommendation systems because they can
 ```
 The problem is to predict the rating given by user u and item i. The metric is typically RMSE between the true ratings and predictions.
 
+It's pretty common is recommendation problem, the user-item matrix is sparse. There are 6040 unique users and 3698 unique items in the dataset, which means only 1M/(6040\*3698) cells in the matrix have value, which is only 4%  
+
 ### SVD implementation
 
 #### Graph
